@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">RusToEngGifSearcher</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="error_message">Что то пошло не так (:</string>
+    <string name="error_translate">Сервер перевода не доступен (:</string>
+    <string name="no_matches">Нет совпадений</string>
+    <string name="no_translate">Не могу перевести(:</string>
+    <string name="default_loading">Нажмите на кнопку!</string>
+    <string name="no_inet">Нет соединения с интернетом</string>
+    <string name="image_description">Some image here</string>
+    <string name="menu_title">Поиск</string>
+</resources>
