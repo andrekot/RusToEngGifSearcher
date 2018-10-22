@@ -8,15 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Url
 import io.reactivex.Observable
-import com.google.gson.annotations.SerializedName
 import org.andrekot.rustoenggifsearcher.BuildConfig
-import org.andrekot.rustoenggifsearcher.model.GifResult
-
-class GifResponse {
-    @SerializedName("data")
-    var gifData: List<GifResult>? = null
-        private set
-}
+import org.andrekot.rustoenggifsearcher.model.GifResponse
 
 interface NetService {
     @GET

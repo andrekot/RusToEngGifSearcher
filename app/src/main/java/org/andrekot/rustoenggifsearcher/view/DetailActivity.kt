@@ -17,7 +17,7 @@ import org.andrekot.rustoenggifsearcher.viewmodel.DetailViewModel
 
 class DetailActivity: AppCompatActivity() {
 
-    private val EXTRA_GIF = "EXTRA_GIF"
+    private val extraGif = "EXTRA_GIF"
 
     private var gifDetailActivityBinding: ActivityDetailBinding? = null
 
@@ -37,7 +37,7 @@ class DetailActivity: AppCompatActivity() {
 
     fun launchActivity(context: Context, gifResult: GifResult): Intent {
         val intent = Intent(context, DetailActivity::class.java)
-        intent.putExtra(EXTRA_GIF, gifResult)
+        intent.putExtra(extraGif, gifResult)
         return intent
     }
 
@@ -53,9 +53,9 @@ class DetailActivity: AppCompatActivity() {
     }
 
     private fun getExtrasFromIntent() {
-        val gifResult = intent.getSerializableExtra(EXTRA_GIF) as GifResult
+        val gifResult = intent.getParcelableExtra<GifResult>(extraGif)
         val gifDetailViewModel = DetailViewModel(gifResult, applicationContext)
-        gifDetailActivityBinding?.setGifDetailViewModel(gifDetailViewModel)
+        gifDetailActivityBinding?.gifDetailViewModel = gifDetailViewModel
         title = gifResult.title
     }
 

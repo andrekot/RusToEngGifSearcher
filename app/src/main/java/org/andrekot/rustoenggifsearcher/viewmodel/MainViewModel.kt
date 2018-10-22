@@ -22,6 +22,7 @@ import org.andrekot.rustoenggifsearcher.service.Translate
 import java.net.URL
 
 class MainViewModel(private var context: Context?) : Observable() {
+
     var gifProgress: ObservableInt
     var gifRecycler: ObservableInt
     var gifLabel: ObservableInt
@@ -41,8 +42,8 @@ class MainViewModel(private var context: Context?) : Observable() {
         }
 
     init {
-        gifList = ArrayList<GifResult>()
-        oldGifList = ArrayList<GifResult>()
+        gifList = ArrayList()
+        oldGifList = ArrayList()
         gifProgress = ObservableInt(View.GONE)
         gifRecycler = ObservableInt(View.GONE)
         gifLabel = ObservableInt(View.VISIBLE)
@@ -77,7 +78,6 @@ class MainViewModel(private var context: Context?) : Observable() {
         val gifService = gifApplication.service
 
         val urlRus = Translate.getTranslateResult(queryUrl)
-        var ss: String? = null
 
         val sq = Single.fromCallable { fetchTranslate(urlRus) }
                .subscribeOn(gifApplication.subscribeScheduler())
@@ -85,9 +85,9 @@ class MainViewModel(private var context: Context?) : Observable() {
                .subscribe { it ->
                    if (gson == null) gson = Gson()
                    val ret = gson?.fromJson<TransResult>(it, TransResult::class.java)
-                   ss = ret?.text!![0]
+                   val ss = ret?.text!![0]
                    if (ss != null) {
-                       val query = GifFactory.getSearchGifsQueryUrl(ss!!)
+                       val query = GifFactory.getSearchGifsQueryUrl(ss)
                        val disposable = gifService!!.fetchGifs(query)
                                .subscribeOn(gifApplication.subscribeScheduler())
                                .observeOn(AndroidSchedulers.mainThread())

@@ -5,7 +5,7 @@ package org.andrekot.rustoenggifsearcher.model
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-class GifImage : Serializable {
+class GifImage: Serializable {
 
     @SerializedName("url")
     var url: String? = null
@@ -18,4 +18,5 @@ class GifImage : Serializable {
 
     @SerializedName("size")
     var size: Int = 0
+
 }

@@ -3,10 +3,9 @@ package org.andrekot.rustoenggifsearcher.model
 /*Created by Andrekot on 16/10/18*/
 
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 import java.util.*
 
-class TransResult : Serializable {
+class TransResult {
 
     @SerializedName("code")
     var code: String? = null

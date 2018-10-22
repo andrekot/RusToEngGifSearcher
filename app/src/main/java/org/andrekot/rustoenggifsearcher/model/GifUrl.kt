@@ -5,7 +5,7 @@ package org.andrekot.rustoenggifsearcher.model
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
-class GifUrlSet : Serializable {
+class GifUrlSet: Serializable {
 
     @SerializedName("original")
     var original: GifImage? = null
@@ -15,4 +15,5 @@ class GifUrlSet : Serializable {
 
     @SerializedName("fixed_height")
     var fixed_height: GifImage? = null
+
 }

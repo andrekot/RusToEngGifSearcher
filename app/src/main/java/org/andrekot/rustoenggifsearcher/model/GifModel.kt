@@ -2,17 +2,20 @@ package org.andrekot.rustoenggifsearcher.model
 
 /*Created by Andrekot on 16/10/18*/
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
+import kotlinx.android.parcel.Parcelize
 
-class GifResult : Serializable {
+@Parcelize
+data class GifResult(
 
     @SerializedName("id")
-    var id: String? = null
+    var id: String? = null,
 
     @SerializedName("images")
-    var images: GifUrlSet? = null
+    var images: GifUrlSet? = null,
 
     @SerializedName("title")
     var title: String? = null
-}
+
+): Parcelable
