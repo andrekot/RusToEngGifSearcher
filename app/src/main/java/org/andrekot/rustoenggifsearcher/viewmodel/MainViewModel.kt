@@ -79,7 +79,7 @@ class MainViewModel(private var context: Context?) : Observable() {
 
         val urlRus = Translate.getTranslateResult(queryUrl)
 
-        val sq = Single.fromCallable { fetchTranslate(urlRus) }
+        compositeDisposable!!.add(Single.fromCallable { fetchTranslate(urlRus) }
                .subscribeOn(gifApplication.subscribeScheduler())
                .observeOn(AndroidSchedulers.mainThread())
                .subscribe { it ->
@@ -113,7 +113,7 @@ class MainViewModel(private var context: Context?) : Observable() {
 
                        compositeDisposable!!.add(disposable)
                    }
-               }
+               })
     }
 
     private fun changeGifsDataSet(gifResults: List<GifResult>) {
